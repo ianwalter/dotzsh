@@ -6,5 +6,6 @@
 # Copy zsh configuration file.
 cp .zshrc ~/.zshrc
 
-# Change default shell to Fish.
-chsh -s /bin/zsh
+# Change default shell to zsh.
+# TODO: add conditional
+# chsh -s /bin/zsh
