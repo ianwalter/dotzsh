@@ -12,6 +12,12 @@ source /usr/local/share/antigen/antigen.zsh
 # Add syntax highlighting: https://github.com/zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-syntax-highlighting
 
+# Add completions: https://github.com/zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-completions
+
+# Add autosuggestions: https://github.com/zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-autosuggestions
+
 # Tell Antigen that we're done.
 antigen apply
 
