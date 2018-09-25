@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# Change NPM default directory if necessary to avoid permission problems.
+if [[ $(npm config get prefix) == '/usr' ]]; then
+  mkdir ~/.npm-global
+  npm config set prefix '~/.npm-global'
+fi
+
 # Install pure-prompt if it's not installed.
 # TODO:
 
