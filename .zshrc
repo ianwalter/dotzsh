@@ -7,6 +7,7 @@ bindkey '[C' forward-word
 bindkey '[D' backward-word
 
 # Use the antigen plugin manager: https://github.com/zsh-users/antigen
+# TODO: fix path for linux
 source /usr/local/share/antigen/antigen.zsh
 
 # Add syntax highlighting: https://github.com/zsh-users/zsh-syntax-highlighting
@@ -26,26 +27,43 @@ if [ `which trash` ]; then
   alias rm=trash
 fi
 
-# Configuration for the history command.
-export HISTTIMEFORMAT='%d/%m/%y %T '
-export HISTCONTROL=ignoredups:erasedups
+# File to save command history.
+HISTFILE=~/.zsh_history
+# How many commands are loaded into shell memory.
+HISTSIZE=5000
+# How many commands to save to the history file.
+SAVEHIST=5000
+# Append history to the history file (don't overwrite).
+setopt APPEND_HISTORY
+# Immediately append to the history file, not just when a terminal is killed.
+setopt INC_APPEND_HISTORY
+# Share history across sessions.
+setopt SHARE_HISTORY
+# Also save when the command started and how long it ran for.
+setopt EXTENDED_HISTORY
+# Don't save a history line if it's the same as the previous one.
+setopt HIST_IGNORE_DUPS
+# When history fills up, remove duplicate commands first.
+setopt HIST_EXPIRE_DUPS_FIRST
+# Remove meaningless whitespace from command history.
+setopt HIST_REDUCE_BLANKS
 
 # Set programming language paths.
 if [ -d ~/go ]; then
-  export GOPATH=~/go
-  export PATH=$GOPATH/bin:$PATH
+  GOPATH=~/go
+  PATH=$GOPATH/bin:$PATH
 fi
 
 # Add NPM default bin directory to $PATH if created during installation.
 if [ -d ~/.npm-global ]; then
-  export PATH=~/.npm-global/bin:$PATH
+  PATH=~/.npm-global/bin:$PATH
 fi
 
 # Linux
 if [[ $(uname) == 'Linux' ]]; then
 
   # Fix issue with VS Code deleting things.
-  export ELECTRON_TRASH='gio'
+  ELECTRON_TRASH='gio'
 
   # Create pbcopy and pbpaste aliases if xclip is installed.
   if [ `which xclip` ]; then
