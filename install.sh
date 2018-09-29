@@ -1,13 +1,14 @@
-#!/bin/sh
+#!/bin/bash
 
-# Change NPM default directory if necessary to avoid permission problems.
-if [[ $(npm config get prefix) == '/usr' ]]; then
-  mkdir ~/.npm-global
-  npm config set prefix '~/.npm-global'
+if [[ $(uname) == 'Linux' ]]; then
+
+  # Change NPM default directory if necessary to avoid permission problems.
+  if [[ $(npm config get prefix) == '/usr' ]]; then
+    mkdir ~/.npm-global
+    npm config set prefix '~/.npm-global'
+  fi
+
 fi
-
-# Install pure-prompt if it's not installed.
-# TODO:
 
 # Copy zsh configuration file.
 cp .zshrc ~/.zshrc
@@ -15,16 +16,6 @@ cp .zshrc ~/.zshrc
 # Change default shell to zsh.
 if ! [[ `echo $SHELL | grep zsh` ]]; then
   chsh -s /bin/zsh
-fi
-
-# Install the antigen plugin manager.
-if ! [[ `brew ls --versions antigen` ]]; then
-  brew install antigen
-fi
-
-# Install trash CLI program if NPM is installed.
-if [[ `which npm` ]] && ! [[ `which trash` ]]; then
-  npm install -g trash-cli
 fi
 
 # macOS
@@ -47,21 +38,6 @@ if [[ $(uname) == 'Darwin' ]]; then
 
   # Disable swipe navigation in Chrome.
   defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
-
-fi
-
-# Linux
-if [[ $(uname) == 'Linux' ]]; then
-
-  # Install xclip.
-  apt-get install -y xclip
-
-
-  # Change NPM default directory if necessary to avoid permission problems.
-  if [[ $(npm config get prefix) == '/usr' ]]; then
-    mkdir ~/.npm-global
-    npm config set prefix '~/.npm-global'
-  fi
 
 fi
 
