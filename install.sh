@@ -1,15 +1,5 @@
 #!/bin/bash
 
-if [[ $(uname) == 'Linux' ]]; then
-
-  # Change NPM default directory if necessary to avoid permission problems.
-  if [[ $(npm config get prefix) == '/usr' ]]; then
-    mkdir ~/.npm-global
-    npm config set prefix '~/.npm-global'
-  fi
-
-fi
-
 # Copy zsh configuration file.
 cp .zshrc ~/.zshrc
 
