@@ -1,14 +1,24 @@
 # dotzsh
 > Ian's zsh configuration (part of
-  [dotfiles](https://github.com/ianwalter/dotfiles)).
+  [dotfiles](https://github.com/ianwalter/dotfiles))
 
 ## Installation
+
+Copies the zsh configuration to your home directory:
 
 ```console
 ./install.sh
 ```
 
+## Update
+
+Copies the zsh configuration back to the repo:
+
+```console
+./update.sh
+```
+
 &nbsp;
 
-Created by [Ian Walter](http://iankwalter.com).
+ISC &copy; [Ian Walter](http://iankwalter.com)
 

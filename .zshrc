@@ -59,6 +59,11 @@ if [ -d ~/.npm-global ]; then
   PATH=~/.npm-global/bin:$PATH
 fi
 
+# If deno is installed, add it to $PATH.
+if [ -d ~/.deno/bin ]; then
+  PATH=~/.deno/bin:$PATH
+fi
+
 # Linux
 if [[ $(uname) == 'Linux' ]]; then
 
