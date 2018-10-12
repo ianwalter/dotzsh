@@ -77,3 +77,6 @@ if [[ $(uname) == 'Linux' ]]; then
   fi
 
 fi
+
+# Set vim as the default editor.
+export EDITOR=vim
