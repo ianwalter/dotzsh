@@ -1,14 +1,14 @@
-# Use pure prompt: https://github.com/sindresorhus/pure
-autoload -U promptinit; promptinit
-prompt pure
+# Add Snapcraft bin directory to PATH.
+if [ -d /snap/bin ]; then
+  PATH=/snap/bin:$PATH
+fi
 
 # https://stackoverflow.com/questions/12382499/looking-for-altleftarrowkey-solution-in-zsh
 bindkey '[C' forward-word
 bindkey '[D' backward-word
 
 # Use the antigen plugin manager: https://github.com/zsh-users/antigen
-# TODO: fix path for linux
-source /usr/local/share/antigen/antigen.zsh
+source ~/.antigen.zsh
 
 # Add syntax highlighting: https://github.com/zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -19,11 +19,15 @@ antigen bundle zsh-users/zsh-completions
 # Add autosuggestions: https://github.com/zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-autosuggestions
 
+# Use pure prompt: https://github.com/sindresorhus/pure
+antigen bundle mafredri/zsh-async
+antigen bundle sindresorhus/pure
+
 # Tell Antigen that we're done.
 antigen apply
 
 # Move files to trash instead of completely removing them.
-if [ `which trash` ]; then
+if [[ `which trash` ]]; then
   alias rm=trash
 fi
 
