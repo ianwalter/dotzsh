@@ -4,8 +4,14 @@ if [ -d /snap/bin ]; then
 fi
 
 # https://stackoverflow.com/questions/12382499/looking-for-altleftarrowkey-solution-in-zsh
-bindkey '[C' forward-word
-bindkey '[D' backward-word
+if [[ $(uname) == 'Darwin' ]]; then
+  bindkey '[C' forward-word
+  bindkey '[D' backward-word
+fi
+if [[ $(uname) == 'Linux' ]]; then
+  bindkey ';5C' forward-word
+  bindkey ';5D' backward-word
+fi
 
 # Use the antigen plugin manager: https://github.com/zsh-users/antigen
 source ~/.antigen.zsh
