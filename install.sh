@@ -1,13 +1,19 @@
 #!/bin/bash
 
 # "Install" Antigen.
-curl -L git.io/antigen > ~/.antigen.zsh
+if ! [[ -f ~/.antigen.zsh ]]; then
+  curl -L git.io/antigen > ~/.antigen.zsh
+fi
 
 # Copy zsh configuration file.
 cp .zshrc ~/.zshrc
 
 # Change default shell to zsh.
-DEFAULT_SHELL=$(awk -F: -v user=$USER '$1 == user {print $NF}' /etc/passwd)
+if [[ $(uname) == 'Linux' ]]; then
+  DEFAULT_SHELL=$(awk -F: -v user=$USER '$1 == user {print $NF}' /etc/passwd)
+else
+  DEFAULT_SHELL=$SHELL
+fi
 if ! [[ $DEFAULT_SHELL == '/bin/zsh' ]]; then
   chsh -s /bin/zsh
 fi
