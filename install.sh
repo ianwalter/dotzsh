@@ -41,6 +41,8 @@ if [[ $(uname) == 'Darwin' ]]; then
 
 fi
 
-if [[ $? == 0 ]]; then
-  echo "Installed zsh configuration successfully."
+
+
+if [[ $? != 0 ]]; then
+  zsh
 fi
