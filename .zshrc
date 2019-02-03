@@ -87,7 +87,7 @@ if [[ $(uname) == 'Linux' ]]; then
   fi
 
   # Setup Linuxbrew in some way?
-  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+  # eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 fi
 
 # Set vim as the default editor.
