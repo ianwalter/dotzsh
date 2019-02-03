@@ -41,8 +41,6 @@ if [[ $(uname) == 'Darwin' ]]; then
 
 fi
 
-
-
 if [[ $? != 0 ]]; then
   zsh
 fi
