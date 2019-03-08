@@ -3,10 +3,13 @@ if [ -d /snap/bin ]; then
   PATH=/snap/bin:$PATH
 fi
 
-# https://stackoverflow.com/questions/12382499/looking-for-altleftarrowkey-solution-in-zsh
 if [[ $(uname) == 'Darwin' ]]; then
+  # https://stackoverflow.com/questions/12382499/looking-for-altleftarrowkey-solution-in-zsh
   bindkey '[C' forward-word
   bindkey '[D' backward-word
+
+  # Clean up LaunchServices to remove duplicates in the “Open With” menu
+  alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
 fi
 if [[ $(uname) == 'Linux' ]]; then
   bindkey ';5C' forward-word
