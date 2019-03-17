@@ -1,5 +1,5 @@
 # Add Snapcraft bin directory to PATH.
-if [ -d /snap/bin ]; then
+if [[ -d /snap/bin ]]; then
   PATH=/snap/bin:$PATH
 fi
 
@@ -11,20 +11,20 @@ if [[ $(uname) == 'Darwin' ]]; then
   # Clean up LaunchServices to remove duplicates in the “Open With” menu
   alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
 
-  if [[ `which exa` ]]; then
-    alias ls="exa"
-  fi
+  # Tell ls to use colored output.
+  export CLICOLOR=1
 fi
 if [[ $(uname) == 'Linux' ]]; then
+  # https://stackoverflow.com/questions/12382499/looking-for-altleftarrowkey-solution-in-zsh
   bindkey ';5C' forward-word
   bindkey ';5D' backward-word
+
+  # Tell ls to use colored output.
+  alias ls='ls --color=auto'
 fi
 
 # Use the antigen plugin manager: https://github.com/zsh-users/antigen
 source ~/.antigen.zsh
-
-# Add syntax highlighting: https://github.com/zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Add completions: https://github.com/zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-completions
@@ -35,6 +35,9 @@ antigen bundle zsh-users/zsh-autosuggestions
 # Use pure prompt: https://github.com/sindresorhus/pure
 antigen bundle mafredri/zsh-async
 antigen bundle sindresorhus/pure
+
+# Add syntax highlighting: https://github.com/zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Tell Antigen that we're done.
 antigen apply
@@ -66,18 +69,18 @@ setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_REDUCE_BLANKS
 
 # Set programming language paths.
-if [ -d ~/go ]; then
+if [[ -d ~/go ]]; then
   GOPATH=~/go
   PATH=$GOPATH/bin:$PATH
 fi
 
 # Add NPM default bin directory to $PATH if created during installation.
-if [ -d ~/.npm-global ]; then
+if [[ -d ~/.npm-global ]]; then
   PATH=~/.npm-global/bin:$PATH
 fi
 
 # If deno is installed, add it to $PATH.
-if [ -d ~/.deno/bin ]; then
+if [[ -d ~/.deno/bin ]]; then
   PATH=~/.deno/bin:$PATH
 fi
 
@@ -88,7 +91,7 @@ if [[ $(uname) == 'Linux' ]]; then
   ELECTRON_TRASH='gio'
 
   # Create pbcopy and pbpaste aliases if xclip is installed.
-  if [ `which xclip` ]; then
+  if [[ `which xclip` ]]; then
     alias pbcopy='xclip -selection clipboard'
     alias pbpaste='xclip -selection clipboard -o'
   fi

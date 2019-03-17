@@ -18,7 +18,7 @@ if ! [[ $DEFAULT_SHELL == '/bin/zsh' ]]; then
   chsh -s /bin/zsh
 fi
 
-# macOS
+# Set macOS configuration.
 if [[ $(uname) == 'Darwin' ]]; then
   ./macos.sh
 fi
