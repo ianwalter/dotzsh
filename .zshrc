@@ -32,10 +32,6 @@ antigen bundle zsh-users/zsh-completions
 # Add autosuggestions: https://github.com/zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-autosuggestions
 
-# Use pure prompt: https://github.com/sindresorhus/pure
-antigen bundle mafredri/zsh-async
-antigen bundle sindresorhus/pure
-
 # Add syntax highlighting: https://github.com/zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-syntax-highlighting
 
@@ -102,3 +98,6 @@ fi
 
 # Set vim as the default editor.
 export EDITOR=vim
+
+# Use starship prompt (https://starship.rs)
+eval "$(starship init zsh)"
