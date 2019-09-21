@@ -80,6 +80,11 @@ if [[ -d ~/.deno/bin ]]; then
   PATH=~/.deno/bin:$PATH
 fi
 
+# If rust is installed, source it's environment variables file.
+if [[ -f $HOME/.cargo/env ]]; then
+  source $HOME/.cargo/env
+fi
+
 # Linux
 if [[ $(uname) == 'Linux' ]]; then
 
