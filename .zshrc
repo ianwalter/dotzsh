@@ -106,3 +106,8 @@ export EDITOR=vim
 
 # Use starship prompt (https://starship.rs)
 eval "$(starship init zsh)"
+
+# Magically makes GPG signing work.
+# https://github.com/keybase/keybase-issues/issues/2798
+export GPG_TTY=$(tty)
+
