@@ -111,3 +111,6 @@ eval "$(starship init zsh)"
 # https://github.com/keybase/keybase-issues/issues/2798
 export GPG_TTY=$(tty)
 
+# Set the Datadog environment.
+export DD_ENV=ian-dev
+
