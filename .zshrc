@@ -114,3 +114,7 @@ export GPG_TTY=$(tty)
 # Set the Datadog environment.
 export DD_ENV=ian-dev
 
+# Install iTerm2 shell integration if downloaded.
+if [ -e "${HOME}/.iterm2_shell_integration.zsh" ]; then
+  source "${HOME}/.iterm2_shell_integration.zsh"
+fi

@@ -10,11 +10,11 @@ cp .zshrc ~/.zshrc
 
 # Change default shell to zsh.
 if [[ $(uname) == 'Linux' ]]; then
-  DEFAULT_SHELL=$(awk -F: -v user=$USER '$1 == user {print $NF}' /etc/passwd)
+  defaultShell=$(awk -F: -v user=$USER '$1 == user {print $NF}' /etc/passwd)
 else
-  DEFAULT_SHELL=$SHELL
+  defaultShell=$SHELL
 fi
-if ! [[ $DEFAULT_SHELL == '/bin/zsh' ]]; then
+if [[ $defaultShell != '/bin/zsh' ]]; then
   chsh -s /bin/zsh
 fi
 
@@ -23,6 +23,7 @@ if [[ $(uname) == 'Darwin' ]]; then
   ./macos.sh
 fi
 
-if [[ $? != 0 ]]; then
+if [[ $? == 0 ]]; then
   zsh
+  printf "\n✅ Installed zsh configuration successfully.\n"
 fi
