@@ -6,7 +6,10 @@ if ! [[ -f ~/.antigen.zsh ]]; then
 fi
 
 # Copy zsh configuration file.
-cp .zshrc ~/.zshrc
+cp .zshrc ~/
+
+# Copy starship prompt configuration file.
+cp starship.toml ~/.config/
 
 # Change default shell to zsh.
 if [[ $(uname) == 'Linux' ]]; then
