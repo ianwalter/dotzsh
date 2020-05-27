@@ -39,7 +39,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
 # Move files to trash instead of completely removing them.
-if [[ `which trash` ]]; then
+if [[ $commands[trash] ]]; then
   alias rm=trash
 fi
 
