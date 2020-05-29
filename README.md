@@ -18,7 +18,10 @@ Copies the zsh configuration back to the repo:
 ./update.sh
 ```
 
+## License
+
+Hippocratic License - See [LICENSE][licenseUrl]
+
 &nbsp;
 
-ISC &copy; [Ian Walter](http://iankwalter.com)
-
+Created by [Ian Walter](https://ianwalter.dev)

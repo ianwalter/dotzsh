@@ -9,7 +9,8 @@ fi
 cp .zshrc ~/
 
 # Copy starship prompt configuration file.
-cp starship.toml ~/.config/
+mkdir -p ~/.config
+cp starship.toml ~/.config
 
 # Change default shell to zsh.
 if [[ $(uname) == 'Linux' ]]; then
@@ -28,5 +29,5 @@ fi
 
 if [[ $? == 0 ]]; then
   zsh
-  printf "\n✅ Installed zsh configuration successfully.\n"
+  printf "\n✅ Installed zsh configuration successfully\n\n"
 fi
