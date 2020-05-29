@@ -97,8 +97,8 @@ if [[ $(uname) == 'Linux' ]]; then
     alias pbpaste='xclip -selection clipboard -o'
   fi
 
-  # Setup Linuxbrew in some way?
-  # eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+  # Add Homebrew / Linuxbrew to path.
+  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 fi
 
 # Set vim as the default editor.
