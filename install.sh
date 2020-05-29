@@ -19,8 +19,8 @@ if [[ $(uname) == 'Linux' ]]; then
 else
   defaultShell=$SHELL
 fi
-if [[ $defaultShell != zshPath ]]; then
-  chsh -s zshPath
+if [[ $defaultShell != $zshPath ]]; then
+  chsh -s $zshPath
 fi
 
 # Set macOS configuration.
