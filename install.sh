@@ -13,13 +13,14 @@ mkdir -p ~/.config
 cp starship.toml ~/.config
 
 # Change default shell to zsh.
+zshPath=$(which zsh)
 if [[ $(uname) == 'Linux' ]]; then
   defaultShell=$(awk -F: -v user=$USER '$1 == user {print $NF}' /etc/passwd)
 else
   defaultShell=$SHELL
 fi
-if [[ $defaultShell != '/bin/zsh' ]]; then
-  chsh -s /bin/zsh
+if [[ $defaultShell != zshPath ]]; then
+  chsh -s zshPath
 fi
 
 # Set macOS configuration.
