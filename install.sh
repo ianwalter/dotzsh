@@ -20,6 +20,11 @@ else
   defaultShell=$SHELL
 fi
 if [[ $defaultShell != $zshPath ]]; then
+  # Add zsh path to /etc/shells on macOS to make it a "standard" shell.
+  if [[ $(uname) == 'Darwin' && $(cat /etc/shells | grep $zshPath) == '' ]]; then
+    sudo sh -c "echo $zshPath >> /etc/shells"
+  fi
+
   chsh -s $zshPath
 fi
 
