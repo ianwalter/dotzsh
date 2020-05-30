@@ -1,21 +1,22 @@
+# Setup word jumping to shift -> and shift <- to behave like vim.
+# https://stackoverflow.com/questions/12382499/looking-for-altleftarrowkey-solution-in-zsh
+bindkey ';2C' forward-word
+bindkey ';2D' backward-word
+
 if [[ $(uname) == 'Darwin' ]]; then
-  # https://stackoverflow.com/questions/12382499/looking-for-altleftarrowkey-solution-in-zsh
-  bindkey '[C' forward-word
-  bindkey '[D' backward-word
 
   # Clean up LaunchServices to remove duplicates in the “Open With” menu
   alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
 
   # Tell ls to use colored output.
   export CLICOLOR=1
+
 fi
 if [[ $(uname) == 'Linux' ]]; then
-  # https://stackoverflow.com/questions/12382499/looking-for-altleftarrowkey-solution-in-zsh
-  bindkey ';5C' forward-word
-  bindkey ';5D' backward-word
 
   # Tell ls to use colored output.
   alias ls='ls --color=auto'
+
 fi
 
 # Use the antigen plugin manager: https://github.com/zsh-users/antigen
