@@ -1,7 +1,12 @@
-# Setup word jumping to shift -> and shift <- to behave like vim.
+# Setup word skipping using <Alt><RightArrow> and <Alt><LeftArrow> to behave
+# like macOS.
 # https://stackoverflow.com/questions/12382499/looking-for-altleftarrowkey-solution-in-zsh
 bindkey '[C' forward-word
 bindkey '[D' backward-word
+
+# Setup command history cycling using <Alt><UpArrow> and <Alt><DownArrow>.
+bindkey '[A' history-beginning-search-backward
+bindkey '[B' history-beginning-search-forward
 
 if [[ $(uname) == 'Darwin' ]]; then
 
