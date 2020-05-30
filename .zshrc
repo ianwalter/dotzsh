@@ -1,8 +1,3 @@
-# Add Snapcraft bin directory to PATH.
-if [[ -d /snap/bin ]]; then
-  PATH=/snap/bin:$PATH
-fi
-
 if [[ $(uname) == 'Darwin' ]]; then
   # https://stackoverflow.com/questions/12382499/looking-for-altleftarrowkey-solution-in-zsh
   bindkey '[C' forward-word
