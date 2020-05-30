@@ -1,7 +1,7 @@
 # Setup word jumping to shift -> and shift <- to behave like vim.
 # https://stackoverflow.com/questions/12382499/looking-for-altleftarrowkey-solution-in-zsh
-bindkey ';2C' forward-word
-bindkey ';2D' backward-word
+bindkey '[C' forward-word
+bindkey '[D' backward-word
 
 if [[ $(uname) == 'Darwin' ]]; then
 
