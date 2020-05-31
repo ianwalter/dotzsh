@@ -65,15 +65,18 @@ setopt HIST_EXPIRE_DUPS_FIRST
 # Remove meaningless whitespace from command history.
 setopt HIST_REDUCE_BLANKS
 
-# If go is installed, add it's bin directory to $PATH.
-if [[ -d ~/go ]]; then
-  GOPATH=~/go
-  PATH=$GOPATH/bin:$PATH
-fi
+export N_PREFIX=$HOME/.n
+export PATH=$N_PREFIX/bin:$PATH
 
 # Add NPM default bin directory to $PATH if created during installation.
 if [[ -d ~/.npm-global ]]; then
   PATH=~/.npm-global/bin:$PATH
+fi
+
+# If go is installed, add it's bin directory to $PATH.
+if [[ -d ~/go ]]; then
+  GOPATH=~/go
+  PATH=$GOPATH/bin:$PATH
 fi
 
 # If deno is installed, add it's bin directory to $PATH.
