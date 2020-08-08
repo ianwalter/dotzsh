@@ -1,2 +1,5 @@
 [hostname]
 style = "green bold"
+
+[directory]
+truncate_to_repo = false
