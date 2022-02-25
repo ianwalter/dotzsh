@@ -8,10 +8,6 @@ fi
 # Copy zsh configuration file.
 cp .zshrc ~/
 
-# Copy starship prompt configuration file.
-mkdir -p ~/.config
-cp starship.toml ~/.config
-
 # Change default shell to zsh.
 zshPath=$(which zsh)
 if [[ $(uname) == 'Linux' ]]; then
